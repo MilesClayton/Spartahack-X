@@ -3,8 +3,9 @@ from pymongo.server_api import ServerApi
 import json
 
 def upload_to_db():
-
-    uri = "mongodb+srv://Jakeaspade:Blackred626$@freedb.xh3be.mongodb.net/?retryWrites=true&w=majority&appName=FreeDB"
+    username = input("Enter database login: ")
+    password = input("Enter Password: ")
+    uri = f"mongodb+srv://{username}:{password}@freedb.xh3be.mongodb.net/?retryWrites=true&w=majority&appName=FreeDB"
     # Create a new client and connect to the server
     client = MongoClient(uri, server_api=ServerApi('1'))
     # Send a ping to confirm a successful connection
@@ -24,3 +25,5 @@ def upload_to_db():
     if results.acknowledged:
         print("Data successfully uploaded to mongoDB!")
 
+# def download_from_db():
+#

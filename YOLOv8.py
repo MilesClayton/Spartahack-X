@@ -25,7 +25,7 @@ def encode_to_json(conf, object, image_file_path, image_file_name, geocode):
 
 def launch_weapon_detection_model():
     # Load the pre-trained YOLOv8 model
-    model = YOLO("yolov8s.pt")  # Use "yolov8s.pt" or larger models for better accuracy
+    model = YOLO("model.pt")  # Use "yolov8s.pt" or larger models for better accuracy
 
     save_dir = "Detected_Threat_Data/"
     # Open the webcam (0 = default camera)
@@ -39,7 +39,7 @@ def launch_weapon_detection_model():
             break
 
         # Run YOLOv8 on the frame
-        results = model(frame, classes=[0])
+        results = model(frame, classes=[0], conf=.5)
         for result in results:
             for box in result.boxes:
                 confidence = box.conf.item()
@@ -49,7 +49,7 @@ def launch_weapon_detection_model():
                 confidence = box.conf.item()  # Confidence score
                 object_name = model.names[int(box.cls.item())]  # Object class name
 
-                if confidence > 0.9:  # Apply confidence threshold
+                if confidence > 0.8:  # Apply confidence threshold
                     # Draw bounding box and label
                     x1, y1, x2, y2 = map(int, box.xyxy[0])  # Coordinates of the box
                     cv2.rectangle(frame, (x1, y1), (x2, y2), (0, 255, 0), 2)
