@@ -8,7 +8,7 @@ app = Flask(__name__)
 socketio = SocketIO(app, cors_allowed_origins="*")
 
 # MongoDB Connection
-uri = "mongodb+srv://Jakeaspade:Whitegold626@freedb.xh3be.mongodb.net/?retryWrites=true&w=majority"
+uri = "mongodb+srv://@freedb.xh3be.mongodb.net/?retryWrites=true&w=majority"
 client = MongoClient(uri, tls=True, tlsCAFile=certifi.where())
 db = client.SpartaHack
 collection = db.Detections
