@@ -25,3 +25,13 @@ tenserflow was a library used to train the model.  This is not required unless y
 pip install pymongo
 ~~~
 pymongo is the driver API for interacting with a MongoDB cluster and database
+
+~~~
+pip install email
+~~~
+email is the library used for sending the alert email
+
+~~~
+pip install smtplib
+~~~
+smtplib is the library handling the Simple Mail Transfer Protocol (SMTP)
