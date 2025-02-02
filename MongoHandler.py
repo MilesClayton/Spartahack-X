@@ -2,7 +2,6 @@ from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 import json
 
-from torchvision.models.detection import retinanet_resnet50_fpn
 
 
 def upload_to_db():
