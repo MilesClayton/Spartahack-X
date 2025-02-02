@@ -1,4 +1,4 @@
-# Spartahack- - SentriScan
+# Spartahack X - SentriScan
 ### Weapon Detection Model
 
 This project trains a YOLOv8 object detection model to detect guns in images. It utilizes a pre-trained YOLOv8 model and fine-tunes it with a dataset obtained from Kaggle.
