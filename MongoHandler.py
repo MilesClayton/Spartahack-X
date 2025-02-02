@@ -2,9 +2,12 @@ from pymongo.mongo_client import MongoClient
 from pymongo.server_api import ServerApi
 import json
 
+from torchvision.models.detection import retinanet_resnet50_fpn
+
+
 def upload_to_db():
-    username = input("Enter database login: ")
-    password = input("Enter Password: ")
+    username = "Jakeaspade" # input("Enter database login: ")
+    password = "Whitegold626" # input("Enter Password: ")
     uri = f"mongodb+srv://{username}:{password}@freedb.xh3be.mongodb.net/?retryWrites=true&w=majority&appName=FreeDB"
     # Create a new client and connect to the server
     client = MongoClient(uri, server_api=ServerApi('1'))
@@ -24,6 +27,10 @@ def upload_to_db():
     results = db.insert_one(data)
     if results.acknowledged:
         print("Data successfully uploaded to mongoDB!")
+    return db
 
-# def download_from_db():
-#
+def download_from_db(db):
+    latest_entry = db.find_one(sort=[("_id", -1)])
+
+    # Print the result
+    return latest_entry

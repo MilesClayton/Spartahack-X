@@ -1,10 +1,11 @@
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+import base64
 
 
 # Function to send an email
-def send_email(to_email, subject, name):
+def send_email(to_email, subject, name, data):
     # Email sender details
     sender_email = "neospartansalert@gmail.com"
     sender_password = "oqdu tzvs nznf wtsl"
@@ -19,16 +20,22 @@ def send_email(to_email, subject, name):
     message["To"] = to_email
     message["Subject"] = subject
 
+
     # Generic string with variables
     body = f"""
     {name},
 
-    🚨 EMERGENCY ALERT: ARMED ASSAILANT 🚨
+    🚨 : ARMED ASSAILANT 🚨
 
     An armed assailant has been reported in the area. 
     Seek immediate shelter, lock doors, and stay away from windows. 
     Remain quiet and follow emergency protocols. Await further instructions from law enforcement. 
     If you are in immediate danger, call 911. Do not approach the suspect. Stay alert and stay safe.
+    
+    Confidence in prediction: {data["conf"]}
+    Location: {data["location_data"]}
+    Date/Time: {data["date"]}
+    Threat Type: {data["object"]}
     """
 
     message.attach(MIMEText(body, "plain"))
