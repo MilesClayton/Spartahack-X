@@ -47,4 +47,4 @@ def send_email(to_email, subject, name):
 
 
 # Example usage
-send_email("Robert3cannon@gmail.com", "ALERT! ARMED ASSAILANT", "Robert Cannon",) # email to send to, subject to email, first and last name
+# send_email("Robert3cannon@gmail.com", "ALERT! ARMED ASSAILANT", "Robert Cannon",) # email to send to, subject to email, first and last name
