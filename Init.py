@@ -13,7 +13,7 @@ datascience_image = (
     .add_local_dir("test", remote_path="/root/test")
     .add_local_dir("train", remote_path="/root/train")
     .add_local_dir("valid", remote_path="/root/valid")
-    .add_local_file("/yolov8n.pt", remote_path="/root/yolov8n.pt")
+    .add_local_file("yolov8n.pt", remote_path="/root/yolov8n.pt")
     .add_local_file("data.yaml", remote_path="/root/data.yaml")
 
 )
